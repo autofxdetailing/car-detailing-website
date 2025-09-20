@@ -26,6 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     priceEls[3].textContent = 'Starting at $145';
   }
 
+  // Set hero section background image programmatically. This ensures the hero
+  // image displays even if the CSS path points to a non‑existent folder on GitHub.
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    // Only set the image if not already inline to avoid overriding styles
+    heroEl.style.backgroundImage = "url('hero_supra.png')";
+  }
+
   // Handle booking form submission
   if (form) {
     form.addEventListener('submit', (e) => {
