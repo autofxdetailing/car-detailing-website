@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearSpan = document.getElementById('year');
 
   // Set current year in footer
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.style.backgroundImage = "url('hero_supra.png')";
+  }
   if (yearSpan) {
     const currentYear = new Date().getFullYear();
     yearSpan.textContent = currentYear;
