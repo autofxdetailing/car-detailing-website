@@ -85,8 +85,16 @@ a {
 
 /* Hero Section */
 /* Hero section features a locally generated abstract car image to avoid external dependencies */
+/*
+ * Hero Section
+ *
+ * The hero now uses a custom image of a sleek black sports car covered in soap suds.
+ * A vertical gradient overlay is applied via the ::after pseudo-element to fade the
+ * image smoothly into the surrounding dark background. Adjust the gradient stops
+ * for more or less contrast.
+ */
 .hero {
-  background-image: url('images/img1.png');
+  background-image: url('images/hero_supra.png');
   background-size: cover;
   background-position: center;
   min-height: 70vh;
@@ -103,7 +111,8 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  /* Fade from semi-transparent at the top to nearly black at the bottom */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
 }
 
 .hero-content {
