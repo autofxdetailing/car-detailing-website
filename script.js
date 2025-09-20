@@ -37,9 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize EmailJS and handle booking form submission
   if (form) {
     try {
-      // Initialize EmailJS with your public key. Replace the placeholder string
-      // 'YOUR_PUBLIC_KEY' with the actual public key from your EmailJS account.
-      emailjs.init('YOUR_PUBLIC_KEY');
+      // Initialize EmailJS with your public key. This authenticates your client
+      // with EmailJS so that form submissions can be sent. The key is found
+      // under Account → API keys in the EmailJS dashboard.
+      emailjs.init('EvRCTgUoKNbArnga6');
     } catch (err) {
       console.warn('EmailJS could not be initialized:', err);
     }
@@ -71,10 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         message: messageVal
       };
 
-      // Send the email using the template parameters. Replace 'YOUR_SERVICE_ID'
-      // and 'YOUR_TEMPLATE_ID' with your actual IDs from EmailJS.
+      // Send the email using the configured EmailJS service and template IDs.
+      // The service ID corresponds to your connected Gmail account and the
+      // template ID corresponds to the "Contact Us" template you saved.
       emailjs
-        .send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .send('service_xtenz7j', 'template_aztdbjit', templateParams)
         .then(() => {
           alert(
             'Thank you for booking with AutoFxDetailing! We will contact you to confirm your appointment.'
