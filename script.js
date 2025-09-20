@@ -34,15 +34,59 @@ document.addEventListener('DOMContentLoaded', () => {
     heroEl.style.backgroundImage = "url('hero_supra.png')";
   }
 
-  // Handle booking form submission
+  // Initialize EmailJS and handle booking form submission
   if (form) {
+    try {
+      // Initialize EmailJS with your public key. Replace the placeholder string
+      // 'YOUR_PUBLIC_KEY' with the actual public key from your EmailJS account.
+      emailjs.init('YOUR_PUBLIC_KEY');
+    } catch (err) {
+      console.warn('EmailJS could not be initialized:', err);
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Simple client-side feedback
-      alert(
-        'Thank you for booking with Detail Master! We will contact you to confirm your appointment.'
-      );
-      form.reset();
+
+      // Collect form values to build custom template parameters. This allows
+      // specifying multiple recipients: the business email and the customer's email.
+      const nameVal = form.name.value;
+      const emailVal = form.email.value;
+      const phoneVal = form.phone.value;
+      const dateVal = form.date.value;
+      const serviceVal = form.service.value;
+      const addonsVal = form.addons.value;
+      const messageVal = form.message.value;
+
+      // Template parameters: the 'to_email' field includes both the business
+      // address and the customer email separated by a comma. EmailJS will send
+      // a copy to each recipient if configured accordingly.
+      const templateParams = {
+        to_email: 'autofx.detailings@gmail.com, ' + emailVal,
+        name: nameVal,
+        email: emailVal,
+        phone: phoneVal,
+        date: dateVal,
+        service: serviceVal,
+        addons: addonsVal,
+        message: messageVal
+      };
+
+      // Send the email using the template parameters. Replace 'YOUR_SERVICE_ID'
+      // and 'YOUR_TEMPLATE_ID' with your actual IDs from EmailJS.
+      emailjs
+        .send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(() => {
+          alert(
+            'Thank you for booking with AutoFxDetailing! We will contact you to confirm your appointment.'
+          );
+          form.reset();
+        })
+        .catch((error) => {
+          console.error('Error sending booking form:', error);
+          alert(
+            'There was a problem submitting your booking. Please try again later.'
+          );
+        });
     });
   }
 });
