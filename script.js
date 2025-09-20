@@ -4,13 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearSpan = document.getElementById('year');
 
   // Set current year in footer
-  const heroSection = document.querySelector('.hero');
-  if (heroSection) {
-    heroSection.style.backgroundImage = "url('hero_supra.png')";
-  }
   if (yearSpan) {
     const currentYear = new Date().getFullYear();
     yearSpan.textContent = currentYear;
+  }
+
+  // Update brand name in header
+  // The header contains an h1 with class "logo". Change its text to the business name provided by the user.
+  const logoEl = document.querySelector('.logo');
+  if (logoEl) {
+    logoEl.textContent = 'AutoFxDetailing';
+  }
+
+  // Update service prices on the page
+  // There are four .service elements with a nested .price span. Update them to the new pricing provided by the user.
+  const priceEls = document.querySelectorAll('.service .price');
+  if (priceEls.length >= 4) {
+    priceEls[0].textContent = '$90';
+    priceEls[1].textContent = '$115';
+    priceEls[2].textContent = '$185';
+    priceEls[3].textContent = 'Starting at $145';
   }
 
   // Handle booking form submission
