@@ -1,8 +1,15 @@
 // Initialize EmailJS (public key found in your EmailJS dashboard)
 emailjs.init('EvRCTgUoKNbArnga6');
 
+ const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.style.backgroundImage = "url('hero_supra.png')";
+  }
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  
 
   // Collect form values
   const nameVal = form.name.value;
