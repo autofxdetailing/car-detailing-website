@@ -34,61 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     heroEl.style.backgroundImage = "url('hero_supra.png')";
   }
 
-  // Initialize EmailJS and handle booking form submission
-  if (form) {
-    try {
-      // Initialize EmailJS with your public key. This authenticates your client
-      // with EmailJS so that form submissions can be sent. The key is found
-      // under Account → API keys in the EmailJS dashboard.
-      emailjs.init('EvRCTgUoKNbArnga6');
-    } catch (err) {
-      console.warn('EmailJS could not be initialized:', err);
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Collect form values to build custom template parameters. This allows
-      // specifying multiple recipients: the business email and the customer's email.
-      const nameVal = form.name.value;
-      const emailVal = form.email.value;
-      const phoneVal = form.phone.value;
-      const dateVal = form.date.value;
-      const serviceVal = form.service.value;
-      const addonsVal = form.addons.value;
-      const messageVal = form.message.value;
-
-      // Build the template parameters for EmailJS.  Do not override the
-      // recipient ("To Email") configured in the template itself—EmailJS will
-      // send the message to the address defined in the template and use the
-      // Bcc field (set to {{email}}) to send a copy to the customer.
-      const templateParams = {
-        name: nameVal,
-        email: emailVal,
-        phone: phoneVal,
-        date: dateVal,
-        service: serviceVal,
-        addons: addonsVal,
-        message: messageVal
-      };
-
-      // Send the email using the configured EmailJS service and template IDs.
-      // The service ID corresponds to your connected Gmail account and the
-      // template ID corresponds to the "Contact Us" template you saved.
-      emailjs
-        .send('service_xtenz7j', 'template_aztdbjit', templateParams)
-        .then(() => {
-          alert(
-            'Thank you for booking with AutoFxDetailing! We will contact you to confirm your appointment.'
-          );
-          form.reset();
-        })
-        .catch((error) => {
-          console.error('Error sending booking form:', error);
-          alert(
-            'There was a problem submitting your booking. Please try again later.'
-          );
-        });
-    });
-  }
+  // Handle the booking form submission.
+  // With Formspree integration, the form action and method are defined in the
+  // HTML.  We no longer need to intercept the submit event or use EmailJS.
+  // If desired, you could add a listener here to display a custom
+  // confirmation message or perform other client‑side logic after submission.
 });
