@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const addonsVal = form.addons.value;
       const messageVal = form.message.value;
 
-      // Template parameters: the 'to_email' field includes both the business
-      // address and the customer email separated by a comma. EmailJS will send
-      // a copy to each recipient if configured accordingly.
+      // Build the template parameters for EmailJS.  Do not override the
+      // recipient ("To Email") configured in the template itself—EmailJS will
+      // send the message to the address defined in the template and use the
+      // Bcc field (set to {{email}}) to send a copy to the customer.
       const templateParams = {
-        to_email: 'autofx.detailings@gmail.com, ' + emailVal,
         name: nameVal,
         email: emailVal,
         phone: phoneVal,
@@ -89,3 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             'There was a problem submitting your booking. Please try again later.'
           );
         });
+    });
+  }
+});
