@@ -94,7 +94,8 @@ a {
  * for more or less contrast.
  */
 .hero {
-  background-image: url('images/hero_supra.png');
+  /* Updated to reference hero_supra.png in the repository root so it loads on GitHub Pages */
+  background-image: url('hero_supra.png');
   background-size: cover;
   background-position: center;
   min-height: 70vh;
@@ -112,7 +113,8 @@ a {
   right: 0;
   bottom: 0;
   /* Fade from lighter semi-transparent at the top to a softer dark at the bottom */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85));
+  /* Lighten the gradient overlay to reveal more of the car image */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.7));
 }
 
 .hero-content {
