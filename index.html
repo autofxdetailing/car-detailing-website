@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Detailing Service</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Client‑side script for dynamic updates (prices, hero image, etc.). -->
+     <!-- Client-side script for dynamic updates (prices, hero image, etc.). -->
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -27,10 +27,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container hero-content">
-        <h2 class="hero-title">Professional Car Detailing</h2>
+        <h2 class="hero-title">Car Detailing</h2>
         <p class="hero-subtitle">
-          Keep your vehicle looking its best with our premium detailing
-          services.
+          The ultimate clean, inside and out.
         </p>
         <a href="#booking" class="btn btn-primary">Book an Appointment</a>
       </div>
@@ -43,10 +42,9 @@
         <div class="service-grid">
           <!-- Service Item 1 -->
           <div class="service-item">
-            <h3>Exterior Wash</h3>
+            <h3>Exterior Detailing</h3>
             <p>
-              Thorough exterior wash including foam bath, hand wash, and
-              streak‑free drying.
+              Professional exterior detail featuring a meticulous hand wash, premium wax protection, and thorough wheel, tire, and glass care for a lasting showroom-quality finish.
             </p>
             <span class="price">$90</span>
           </div>
@@ -54,28 +52,31 @@
           <div class="service-item">
             <h3>Interior Detailing</h3>
             <p>
-              Complete interior clean: vacuuming, upholstery cleaning, and
-              dashboard polish.
+              Professional interior detail featuring deep steam cleaning, upholstery extraction, leather conditioning, full vacuuming, and complete air compression using premium chemicals for a spotless, refreshed car.
             </p>
             <span class="price">$115</span>
           </div>
           <!-- Service Item 3 -->
           <div class="service-item">
-            <h3>Full Service</h3>
+            <h3>Full detail</h3>
             <p>
-              Our signature detailing package includes everything your car
-              needs inside and out.
+              Full detail with premium exterior wash, wax, and wheel care plus deep interior steam cleaning, upholstery extraction, leather conditioning, vacuuming, and air compression for a showroom-quality clean inside and out.
             </p>
-            <span class="price">$185</span>
+            <span class="price">$195</span>
           </div>
           <!-- Service Item 4 -->
           <div class="service-item">
-            <h3>Custom Package</h3>
+            <h3>Add-ons</h3>
             <p>
-              Tailor your own service with a mix of interior and exterior
-              treatments.
+              Ceramic Coating and Paint Correction include exterior detail, ceramic coating includes Clay Bar
             </p>
-            <span class="price">Starting at $145</span>
+              <table> <tr>
+                 <td><span class="price">$30</span></td><td> Spot Stain Removal</td></tr>
+                <td><span class="price">$30</span></td><td>Clay Bar</td><tr>
+                <td><span class="price">$250</span></td><td>Paint Correction</td></tr>
+                <td><span class="price">$400</span></td><td>Ceramic Coating</td></tr>
+                 </tr>
+               </table>
           </div>
         </div>
       </div>
@@ -125,7 +126,16 @@
               <option value="Exterior Wash">Exterior Wash</option>
               <option value="Interior Detailing">Interior Detailing</option>
               <option value="Full Service">Full Service</option>
-              <option value="Custom Package">Custom Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="service">Add-ons</label>
+            <select id="addons" name="addons">
+              <option value="">Select an Addon</option>
+              <option value="Spot Stain Removal">Spot Stain Removal</option>
+              <option value="Clay Bar">Clay Bar</option>
+              <option value="Paint Correction">Paint Correction</option>
+              <option value="Ceramic Coating">Ceramic Coating</option>
             </select>
           </div>
           <div class="form-group full-width">
